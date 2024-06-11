@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./public/css/style.css">
+  <title>Galeria de Imagens</title>
+  <style>
+    button{
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Galeria de Imagens</h1>
+  <div id="galeria"></div>
+
+  <button onclick="carregarImagens()" class="button">clicla em mim</button>
+  
+  <script>
+    async function carregarImagens() {
+      try {
+        const response = await fetch('/imagens');
+        const imagens = await response.json();
+
+        const galeria = document.getElementById('galeria');
+        imagens.forEach(imagem => {
+          const titulo = document.createElement('h2');
+          titulo.textContent = imagem.name;
+
+          const img = document.createElement('img');
+          img.src = imagem.url;
+
+          galeria.appendChild(titulo);
+          galeria.appendChild(img);
+        });
+      } catch (error) {
+        console.error('Erro ao carregar imagens:', error);
+      }
+    }
+
+    // Carregar imagens quando a página for carregada
+  </script>
+</body>
+</html>
