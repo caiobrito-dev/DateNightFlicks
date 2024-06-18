@@ -27,7 +27,6 @@ app.get("/imagens", (req, res) => {
             return
         }
         res.json(result)
-        console.log("FUNCIONOU")
     })
 })
 
