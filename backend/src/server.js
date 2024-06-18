@@ -21,7 +21,7 @@ connection.connect(err => {
 })
 
 app.get("/imagens", (req, res) => {
-    connection.query("SELECT name, url FROM films", (err, result) => {
+    connection.query("SELECT name, url, genero, date, time FROM films", (err, result) => {
         if (err){
             res.status(500).send("Erro ao consultar banco de dados")
             return

@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Koh+Santepheap:wght@100;300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -10,6 +13,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: "Poppins";
 }
 
 main{
@@ -46,6 +50,9 @@ input{
 #galeria > :first-child{
     margin-top: 15px;
 }
+#galeria > :last-child{
+    margin-bottom: 15px;
+}
 
 .filmData{
     width: 95%;
@@ -53,13 +60,62 @@ input{
     display: flex;
     align-items: center;
     gap: 15px;
-    grid-template-columns: 100px 1fr;
     border-radius: 5px;
     margin-top: 5px;
+    position: relative;
 }
+
+.info{
+    transition: all 500ms;
+}
+
+.info > h2{
+    font-size: 18px;
+}
+
+.info p{
+    font-size: 13px;
+}
+
 .filmData > img{
     border-radius: 5px;
+    width: 100px;
 }
+
+.filmData:hover{
+    background-color: #dafdb9b9;
+}
+
+.filmData:hover > .info{
+    transform: translateY(-15px);
+}
+
+.filmData:hover::after{
+    content: "Adicionar filme";
+    position: absolute;
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+    font-size: 15px;
+    background-color: #13678a;
+    bottom: 8px;
+    right: 8px;
+    cursor: pointer;
+    animation: AddMovie 500ms ease-in-out;
+}
+
+@keyframes AddMovie {
+    0%{
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    100%{
+        opacity: 100%;
+        transform: translateY(0px);
+    }
+}
+
 ::-webkit-scrollbar{
     border-radius: 8px; 
     width: 15px;
