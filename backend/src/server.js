@@ -1,18 +1,20 @@
 const express = require("express")
 const mysql = require("mysql2")
-const port = 3000
 const cors = require('cors');
-
 const app = express()
-app.use(cors());
+require("dotenv").config()
 
+const port = process.env.PORT
+
+
+app.use(cors());
 
 //Conexão com BD
 const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "root",
-    database: "date_night_flicks"
+    host: process.env.MYSQL_HOST,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD,
+    database: process.env.MYSQL_DB
 })
 
 connection.connect(err => {
@@ -31,5 +33,6 @@ app.get("/imagens", (req, res) => {
 })
 
 app.listen(port, () => {
+    console.log(`Server running on port ${port}`)
     return `Server running on port ${port}`
 })
