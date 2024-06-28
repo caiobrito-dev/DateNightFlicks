@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="./src/css/PersonList.css">
+  <link rel="stylesheet" href="./src/css/global.css">
   <title>Date Night Flicks</title>
 
 </head>
 <body>
-
+  <header></header>
   <main>
     <h1>Digite o nome do filme</h1>
     <input type="text" placeholder="Nome do filme:" onclick="carregarImagens()" onkeyup="Filtrar()" id="input_film">
@@ -16,6 +18,41 @@
 
     </div>
   </main>
+
+  <section></section>
+
+  <footer>
+    <section class="contats">
+       <div class="dados_dev">
+           
+           <div class="FoundImg"><img src="./src/imgs/CaioB.jpg" alt="" class="caio"></div>
+           <div class="socialMedia">
+               <a href="https://www.instagram.com/caio_b2005/" target="_blank">
+                   <button class="insta">
+                       <i class="fa-brands fa-instagram"></i>
+                   </button>
+               </a>
+               <a href="https://github.com/caiobrito-dev" target="_blank">
+                   <button class="github">
+                       <i class="fa-brands fa-github"></i>
+                   </button>
+               </a>
+               <a href="https://www.linkedin.com/in/caio-barcelos-de-brito-3150732a4/" target="_blank">
+                   <button class="linkedin">
+                       <i class="fa-brands fa-linkedin"></i>
+                   </button>
+               </a>
+           </div>
+       </div>
+        <h2>Caio Barcelos de Brito</h2>
+    </section>
+    <div class="linha"></div>
+    <section class="descrição"> 
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis sapiente excepturi praesentium molestiae ducimus temporibus modi vel odit iure necessitatibus, provident quod consectetur, tenetur, fugiat ipsa perspiciatis incidunt quidem alias.
+        </p>
+    </section>
+  </footer>
 
   <script src="./src/js/script.js"></script>
 </body>

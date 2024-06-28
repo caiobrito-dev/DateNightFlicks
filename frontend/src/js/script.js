@@ -23,14 +23,22 @@ async function carregarImagens() {
   
         const filmData = document.createElement("div")
         filmData.innerHTML = `
-          <img src="${imagem.url}" alt="">
-          <div class="info">
-            <h2>${imagem.name}</h2>     
-            <p>Ano de Lançamento: ${imagem.date}</p>    
-            <p>Duração: ${imagem.time}Min</p>    
-            <p>Genero: ${imagem.genero}</p>    
-          </div>
+            <img src="${imagem.url}" alt="">
+            <div class="info">
+              <div class="data">
+                <h2>${imagem.name}</h2>     
+                <p>Lançamento: ${imagem.date}</p>    
+                <p>Duração: ${imagem.time}Min</p>    
+                <p>Genero: ${imagem.genero}</p>   
+              </div>
+            </div>
+            <div class="div_button">
+              <button class="add_film" value="${imagem.name}" onclick="AdicionarFilme()">Adicionar filme</button> 
+            </div>
         `
+        if(imagem.name.length > 15){
+          filmData.classList.add("big")
+        }
         filmData.classList.add("filmData")
         galeria.appendChild(filmData)
         galeria.style.display = "flex"
