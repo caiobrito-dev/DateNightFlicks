@@ -2,8 +2,9 @@
     margin: 0;
 }
 
+/*Estilização geral*/
 footer{
-    margin-top: 50px;
+    margin-top: 100px;
 }
 
 main{
@@ -11,6 +12,7 @@ main{
     flex-direction: column;
     align-items: center;
     width: 500px;
+    height: 450px;
     margin-top: 100px;
 }
 
@@ -25,6 +27,7 @@ input{
     outline: none;
 }
 
+/*Div de pesquisa dos filmes*/
 #galeria{
     background-color: #9c9c9c;
     width: 100%;
@@ -45,6 +48,7 @@ input{
     margin-bottom: 15px;
 }
 
+/*Cada filme*/
 .filmData{
     width: 95%;
     background-color: #CACACA;
@@ -82,10 +86,10 @@ input{
     width: 120px;
     transition: all 500ms;
 }
-img:hover{
+.filmData > img:hover{
     width: 145px;
 }
-img:hover ~ .div_button{
+.filmData > img:hover ~ .div_button{
     transform: translateX(-22px);
 }
 
@@ -139,6 +143,7 @@ img:hover ~ .div_button{
     }
 }
 
+/*Estilização do scroll*/
 ::-webkit-scrollbar{
     border-radius: 8px; 
     width: 15px;
@@ -148,3 +153,6 @@ img:hover ~ .div_button{
     background-color: #9b9b9b;
     border-radius: 10px;
 }
+
+
+/*Div dos filmes Selecionados*/

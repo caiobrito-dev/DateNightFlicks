@@ -1,4 +1,27 @@
 let contador = 0
+let Filmes_Selecionados = []
+function AdicionarFilme(film, url){
+
+  if(Filmes_Selecionados.some((obj) => obj.Name == film)){
+    alert("Ja tem")
+  }else{
+    Filmes_Selecionados.push({
+      Name: film,
+      Url: url
+    })
+  }  
+  
+  const divSelecionados = document.getElementById("select_films")
+
+  /* Filmes_Selecionados.forEach((filme) =>{
+    const Filme_atual = document.createElement("div")
+    Filme_atual.innerHTML = `
+      <img src="${filme.Url}">
+    `
+  }) */
+
+}
+
 
 async function carregarImagens() {
   const input = document.getElementById("input_film")
@@ -33,7 +56,7 @@ async function carregarImagens() {
               </div>
             </div>
             <div class="div_button">
-              <button class="add_film" value="${imagem.name}" onclick="AdicionarFilme()">Adicionar filme</button> 
+              <button class="add_film" onclick="AdicionarFilme('${imagem.name, imagem.url}')">Adicionar filme</button> 
             </div>
         `
         if(imagem.name.length > 15){
@@ -89,3 +112,4 @@ function Filtrar(){
   
 
 }
+
