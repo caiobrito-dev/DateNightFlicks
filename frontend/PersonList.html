@@ -11,15 +11,34 @@
 </head>
 <body>
   <header></header>
-  <main>
-    <h1>Digite o nome do filme</h1>
-    <input type="text" placeholder="Nome do filme:" onclick="carregarImagens()" onkeyup="Filtrar()" id="input_film">
-    <div id="galeria">
 
+  <div class="Tudo">
+      <main>
+        <h1>Digite o nome do filme</h1>
+        <input type="text" placeholder="Nome do filme:" onclick="carregarImagens()" onkeyup="Filtrar()" id="input_film">
+        <div id="galeria">
+        </div>
+      </main>
+      <section id="your_list">
+        <h1>Filmes Selecionados</h1>
+        <section id="select_films"></section>
+      </section>
+  </div>
+  
+  <div class="buttons">
+    <div class="options">
+        <label for="qtd_filmes">Qtd de Filmes</label>
+            <select id="qtd_filmes" name="qtd_filmes">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        <p id="contador">Total de Filmes = 0</p>
     </div>
-  </main>
 
-  <section id="select_films"></section>
+    <button class="sort_button" onclick="Sortear()">Sortear</button>
+  </div>
 
   <footer>
     <section class="contats">

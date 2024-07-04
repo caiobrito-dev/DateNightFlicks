@@ -1,27 +1,55 @@
 let contador = 0
 let Filmes_Selecionados = []
+
 function AdicionarFilme(film, url){
 
-  if(Filmes_Selecionados.some((obj) => obj.Name == film)){
+  if(Filmes_Selecionados.some((obj) => obj.name == film)){
     alert("Ja tem")
   }else{
     Filmes_Selecionados.push({
-      Name: film,
-      Url: url
+      name: film,
+      url: url
     })
+    MostraSelecionados(true)
   }  
-  
-  const divSelecionados = document.getElementById("select_films")
-
-  /* Filmes_Selecionados.forEach((filme) =>{
-    const Filme_atual = document.createElement("div")
-    Filme_atual.innerHTML = `
-      <img src="${filme.Url}">
-    `
-  }) */
-
 }
 
+function RemoverFilme(filme){
+  const index = Filmes_Selecionados.findIndex(film => film.name == filme)
+  if (index !== -1) {
+    Filmes_Selecionados.splice(index, 1);
+  }
+
+  MostraSelecionados()
+}
+
+function MostraSelecionados(scroll){
+  const contFilmes = document.getElementById("contador")
+  contFilmes.innerText = `Total de Filmes = ${Filmes_Selecionados.length}`
+  const DivPrincipal = document.getElementById("your_list")
+  const divSelecionados = document.getElementById("select_films")
+  divSelecionados.innerHTML = ""
+
+  Filmes_Selecionados.forEach((filme) =>{
+    const filmeAtual = document.createElement("div")
+    filmeAtual.innerHTML = `
+    <div class="select_data">
+      <img src="${filme.url}">
+      <p>${filme.name}</p>
+    </div>
+    <button class="exclude_film" onclick="RemoverFilme('${filme.name}')" ><i class="fa-solid fa-trash-can"></i></button>
+    `
+    filmeAtual.classList.add("filme_selecionado")
+    divSelecionados.appendChild(filmeAtual)
+    if(scroll){
+      divSelecionados.scrollBy({
+        top: 500,
+        behavior: "smooth"
+      })
+    }
+    DivPrincipal.style.display = "flex"
+  })
+}
 
 async function carregarImagens() {
   const input = document.getElementById("input_film")
@@ -43,7 +71,6 @@ async function carregarImagens() {
   
   
       imagens.forEach(imagem => {
-  
         const filmData = document.createElement("div")
         filmData.innerHTML = `
             <img src="${imagem.url}" alt="">
@@ -56,7 +83,7 @@ async function carregarImagens() {
               </div>
             </div>
             <div class="div_button">
-              <button class="add_film" onclick="AdicionarFilme('${imagem.name, imagem.url}')">Adicionar filme</button> 
+              <button class="add_film" onclick="AdicionarFilme('${imagem.name}','${imagem.url}')">Adicionar filme</button> 
             </div>
         `
         if(imagem.name.length > 15){
@@ -113,3 +140,18 @@ function Filtrar(){
 
 }
 
+function Sortear(qtd){
+
+  const selects = document.getElementById("qtd_filmes")
+  const qtdDesejada = selects.selectedIndex + 1
+  if (qtdDesejada > 1){
+    let sorteados = []
+    for(let i = 0; i < qtdDesejada; i++){
+      const randomIndex = Math.floor(Math.random() * Filmes_Selecionados.length)
+      alert(Filmes_Selecionados[randomIndex].name)
+    }
+  }
+
+  const randomIndex = Math.floor(Math.random() * Filmes_Selecionados.length)
+  alert(Filmes_Selecionados[randomIndex].name)
+}

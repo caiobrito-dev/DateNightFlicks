@@ -53,7 +53,7 @@ footer{
     align-items: center;
     flex-direction: column;
     gap: 20px;
-    width: 40%;
+   width: 400px;
 }
 .dados_dev{
     display: flex;
