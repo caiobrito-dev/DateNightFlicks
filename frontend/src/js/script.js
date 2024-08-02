@@ -24,6 +24,7 @@ function RemoverFilme(filme){
 }
 
 function MostraSelecionados(scroll){
+  let cont = 0
   const contFilmes = document.getElementById("contador")
   contFilmes.innerText = `Total de Filmes = ${Filmes_Selecionados.length}`
   const DivPrincipal = document.getElementById("your_list")
@@ -41,9 +42,18 @@ function MostraSelecionados(scroll){
     `
     filmeAtual.classList.add("filme_selecionado")
     divSelecionados.appendChild(filmeAtual)
+    let total = divSelecionados.querySelectorAll
+    console.log(total)
+
+    let before = 0
+    let after = 0
+    for(i=0; i < total.length; i++){
+      nome = total.tagName
+      console.log(nome)
+    }
     if(scroll){
-      divSelecionados.scrollBy({
-        top: 500,
+      divSelecionados.scrollTo({
+        top: filmeAtual.scrollHeight,
         behavior: "smooth"
       })
     }
@@ -134,10 +144,7 @@ function Filtrar(){
       films[i].style.display = "none"
     }
   }
-
   
-  
-
 }
 
 function Sortear(qtd){
