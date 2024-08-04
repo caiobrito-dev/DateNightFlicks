@@ -42,18 +42,14 @@ function MostraSelecionados(scroll){
     `
     filmeAtual.classList.add("filme_selecionado")
     divSelecionados.appendChild(filmeAtual)
-    let total = divSelecionados.querySelectorAll
-    console.log(total)
+    let total = divSelecionados.querySelectorAll("div.filme_selecionado")
+    console.log(total.length)
+    let scrollLen = 460 * total.length
 
-    let before = 0
-    let after = 0
-    for(i=0; i < total.length; i++){
-      nome = total.tagName
-      console.log(nome)
-    }
+
     if(scroll){
       divSelecionados.scrollTo({
-        top: filmeAtual.scrollHeight,
+        top: scrollLen,
         behavior: "smooth"
       })
     }
